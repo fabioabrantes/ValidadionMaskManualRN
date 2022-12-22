@@ -39,4 +39,7 @@ export const InputText = styled(TextInput)<Props>`
   font-family: ${({theme})=>theme.fonts.body};
   font-size: 15px;
   padding: 0px 23px; 
+  border-bottom-width:1px;
+  border-color:${({theme,isFocused})=>
+    (isFocused) ? theme.colors.main : theme.colors.text_detail};
 `;

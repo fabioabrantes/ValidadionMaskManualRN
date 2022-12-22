@@ -24,7 +24,7 @@ export const IconContainer = styled.View`
 export const Icon= styled(Feather)<Props>`
   font-size:24px;
   color: ${({theme,isFocused,isFilled})=>
-    (isFocused ||isFilled) ? theme.colors.main : theme.colors.text_detail};
+    (isFocused) ? theme.colors.main : theme.colors.text_detail};
 `;
 
 export const InputText = styled(TextInput)<Props>`
@@ -35,6 +35,13 @@ export const InputText = styled(TextInput)<Props>`
   font-family: ${({theme})=>theme.fonts.body};
   font-size: 15px;
   padding: 0px 23px;
+  border-bottom-width:1px;
   border-color:${({theme,isFocused,isFilled})=>
     (isFocused ||isFilled) ? theme.colors.main : theme.colors.text_detail};
+`;
+
+export const Button = styled.TouchableOpacity<Props>`
+  border-bottom-width:1px;
+  border-color:${({theme,isFocused})=>
+    (isFocused) ? theme.colors.main : theme.colors.text_detail};
 `;

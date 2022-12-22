@@ -10,25 +10,27 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   width:100%;
-  margin-top: 115px;
+  margin-top: 80px;
 `;
 
 export const Title = styled.Text`
-  font-size:40px;
+  font-size:30px;
   font-family: ${({theme})=>theme.fonts.heading};
   color: ${({theme})=>theme.colors.title};
 `;
 
 export const SubTitle = styled.Text`
-  font-size:15px;
+  font-size:25px;
   font-family: ${({theme})=>theme.fonts.body};
   color: ${({theme})=>theme.colors.text};
-  line-height:25px;
-  margin-top: 16px;
+  line-height:30px;
+  margin-top: 40px;
+  font-weight:bold;
+  text-align:center;
 `;
 export const Form = styled.View`
   width: 100%;
-  margin: 64px 0px;
+  margin: 50px 0px;
 `;
 
 export const Footer = styled.View``;

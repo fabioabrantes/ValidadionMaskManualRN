@@ -15,6 +15,7 @@ import {
   SubTitle,
   Form,
   Footer,
+  Title,
 } from './styles';
 
 
@@ -33,6 +34,7 @@ export function RegisterManual() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpf, setCpf] = useState('');
+
   const [errorName, setErrorName] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
@@ -73,10 +75,11 @@ export function RegisterManual() {
       setErrorName("O nome tem que ter no mínimo 3 caracteres");
       error=true;
     }
+
     return !error;
   }
 
-  function salvar(){
+  function register(){
     if(validaCampos()){
       let data ={
         email,
@@ -97,7 +100,9 @@ export function RegisterManual() {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView behavior="position" enabled>
           <Header>
-            <SubTitle> Faça seu Cadastro no sistema do IFPB.</SubTitle>
+            <Title>Bem vindo ao App - IFPB</Title>
+
+            <SubTitle>Faça seu cadastro!</SubTitle>
           </Header>
 
           <Form>
@@ -105,7 +110,7 @@ export function RegisterManual() {
               iconName="edit"
               placeholder="Digite seu nome"
               autoCorrect={false}/* não fica corrigindo palavras */
-              autoCapitalize="none" /* não fica induzindo a colocar a primeira letra maiúscula */
+              autoCapitalize="words" /* não fica induzindo a colocar a primeira letra maiúscula */
               onChangeText={(text)=>handleName(text)}
               value={name}
             />
@@ -142,6 +147,8 @@ export function RegisterManual() {
               placeholder="Digite seu CPF"
               inputMaskChange={handleCpf}
               value={cpf}
+              keyboardType="numeric"
+
             />
                 {
                   errorCpf.length > 0 && <ErrorMessage description={errorCpf}/>
@@ -149,7 +156,7 @@ export function RegisterManual() {
           </Form>
 
           <Footer>
-            <Button title="Cadastrar" onPress={salvar}/>
+            <Button title="Cadastrar" onPress={register}/>
           </Footer>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>

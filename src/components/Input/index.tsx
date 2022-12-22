@@ -1,12 +1,12 @@
 import {useState} from 'react';
 import {TextInputProps} from 'react-native';
-import { TouchableOpacity } from 'react-native';
 
 import { 
   Container,
   IconContainer,
   InputText,
-  Icon
+  Icon,
+  Button
 } from './styles';
 
 export interface Props extends TextInputProps{
@@ -54,16 +54,18 @@ export function Input({iconName,value, ...rest}:Props){
                 {...rest}
               />
 
-              <TouchableOpacity
+              <Button
                 activeOpacity={0.6}
                 onPress={handlePasswordVisibilityChange}
+                isFocused={isFocused}
               >
                 <IconContainer>
                   <Icon 
                     name={isPasswordVisible ? 'eye' : 'eye-off'}
+                    isFocused={isFocused}
                   />
                 </IconContainer>
-              </TouchableOpacity>
+              </Button>
             </>
           )
         : 
